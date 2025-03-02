@@ -1,0 +1,126 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fff;
+    color: #000;
+  }
+  
+  .container {
+    display: flex;
+  }
+  
+  /* Navigation Bar */
+  .navbar {
+    width: 250px;
+    height: 100vh;
+    background-color: #111;
+    padding: 20px;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .navbar ul li {
+    margin: 20px 0;
+  }
+  
+  .navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  .navbar ul li a i {
+    margin-right: 10px;
+  }
+  
+  /* Main Content */
+  .content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  /* Map Section */
+  .map-section {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 20px;
+    overflow: hidden; /* Ensures the map stays within the rounded corners */
+  }
+  
+  #map {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+  
+  /* Details Section */
+  .details-section {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+  }
+  
+  select, input[type="number"], input[type="date"], input[type="time"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: #222;
+    color: #fff;
+    font-size: 1rem;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #e64a19;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .details-section {
+    animation: fadeIn 1s ease-in-out;
+  }

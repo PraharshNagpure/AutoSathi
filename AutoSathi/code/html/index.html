@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- external links -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/code/css/index.css">
+  <link rel="stylesheet" href="https://lottie.host/b7a17261-d7b3-49bb-86b5-3b54584a6600/Qm6wOAU2nP.lottie">
+  <link rel="stylesheet" href="https://lottie.host/6e63c0c4-fc0d-4cdc-8323-82745cf269fb/5IzaTfKyjM.lottie">
+  <link rel="stylesheet" href="https://lottie.host/5e937876-d95d-4c9e-b3fe-e5bbb55f0ea5/Utxu25IAU1.lottie">
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9egMqeHQKiGOIxQKid0JY0_SSaiRnvLw&libraries=places&callback=initMap"></script>
+
+
+  <!-- internal css links -->
+  <link rel="stylesheet" href="/code/css/footer.css">
+  <link rel="stylesheet" href="/code/css/main.css">
+  <link rel="stylesheet" href="/Code/Css/navbar.css">
+  <link rel="stylesheet" href="/code/css/newsletter.css">
+
+
+  <title>AutoSathi - Sharing Auto</title>
+</head>
+
+<body>
+  <div id="newsletter-container"></div>
+  <div class="hero-page">
+    <div id="navbar-container"></div>
+
+    <div class="booking-section">
+      <div class="welcome-message">
+        <div class="message">
+          <h1 class="welcome-heading">Book Your Auto Now!</h1>
+          <p class="wel-para">Need a quick ride? Your auto is ready!</p>
+          <p>Travel solo or merge your ride with others to save more and share the journey.</p>
+          <button class="learn-more">Learn More</button>
+          <button class="learn-more">Book Now</button>
+        </div>
+        <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+          type="module"></script>
+        <dotlottie-player src="https://lottie.host/6e63c0c4-fc0d-4cdc-8323-82745cf269fb/5IzaTfKyjM.lottie"
+          background="transparent" speed="1" style="width: 300px; height: 500px" loop autoplay></dotlottie-player>
+      </div>
+      <div class="book-the-ride">
+        <div class="book-for-user">
+          <h1 class="find-route">Find Route</h1>
+          <div class="toggle-container">
+            <button id="outstationBtn" class="toggle-btn outstation active">Outstation</button>
+            <button id="localBtn" class="toggle-btn local">Local</button>
+          </div>
+          <div class="toggle-container">
+            <button id="nowBtn" class="toggle-btn now active">Now</button>
+            <button id="laterBtn" class="toggle-btn later">Later</button>
+          </div>
+          <br>
+          <input id="start" type="text" placeholder="Enter Current Location">
+          <br>
+          <input id="end" type="text" placeholder="Enter Drop Location">
+          <br>
+
+          <button class="Merge">Merge Your Ride</button>
+          <button class="Merge">Book Solo Ride</button>
+
+          <!-- <button onclick="calculateRoute()" class="show-route">Show Route</button> -->
+        </div>
+
+      </div>
+    </div>
+    <!-- AIzaSyD9egMqeHQKiGOIxQKid0JY0_SSaiRnvLw -->
+  </div>
+
+  <div id="price-fare">
+    <h3 class="fare-title">Estimated Fare</h3>
+
+    <div class="fare-item">
+      <span class="fare-label" id="autoPriceLabel">Auto Price:</span>
+      <span class="fare-value">₹ <span id="autoPrice">100</span></span>
+    </div>
+
+    <div class="fare-item">
+      <span class="fare-label" id="gstLabel">GST (18%):</span>
+      <span class="fare-value">₹ <span id="gstAmount">18</span></span>
+    </div>
+
+    <div class="fare-item">
+      <span class="fare-label" id="tollLabel">Toll Charges:</span>
+      <span class="fare-value">₹ <span id="tollCharges">20</span></span>
+    </div>
+
+    <hr class="fare-divider">
+
+    <div class="fare-total">
+      <span class="fare-label" id="totalLabel">Total Fare:</span>
+      <span class="fare-value">₹ <span id="totalFare">138</span></span>
+    </div>
+  </div>
+  <br>
+  <div id="map"></div>
+  <div id="main-container"></div>
+
+
+  <br>
+  <div id="footer-container"></div>
+</body>
+
+
+
+
+<script src="/code/javascript/index.js"></script>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyC8xnmHFa6N_iIv_7biy-NCTknaCDOhAH8",
+    authDomain: "autosathi-2634a.firebaseapp.com",
+    projectId: "autosathi-2634a",
+    storageBucket: "autosathi-2634a.firebasestorage.app",
+    messagingSenderId: "1074837002030",
+    appId: "1:1074837002030:web:514dd4292fb09bafc9ccbf",
+    measurementId: "G-B1T7ZM6XEZ"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+<script>
+  let autoPrice = 100; // Example base fare
+  let gst = autoPrice * 0.18;
+  let toll = 20; // Example toll charges
+  let total = autoPrice + gst + toll;
+
+  document.getElementById("gstAmount").innerText = gst.toFixed(2);
+  document.getElementById("totalFare").innerText = total.toFixed(2);
+</script>
+
+
+
+<script>
+  const outstationBtn = document.getElementById("outstationBtn");
+  const localBtn = document.getElementById("localBtn");
+
+  outstationBtn.addEventListener("click", function () {
+    outstationBtn.classList.add("active");
+    localBtn.classList.remove("active");
+  });
+
+  localBtn.addEventListener("click", function () {
+    localBtn.classList.add("active");
+    outstationBtn.classList.remove("active");
+  });
+
+  const nowBtn = document.getElementById("nowBtn");
+  const laterBtn = document.getElementById("laterBtn");
+
+  nowBtn.addEventListener("click", function () {
+    nowBtn.classList.add("active");
+    laterBtn.classList.remove("active");
+  });
+
+  laterBtn.addEventListener("click", function () {
+    laterBtn.classList.add("active");
+    nowBtn.classList.remove("active");
+  });
+</script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+  (function () {
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/67c3fb21190398190cecf38d/1ilaopuqj';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin', '*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+</script>
+<!--End of Tawk.to Script-->
+</script>
+<script>
+  let map, directionsService, directionsRenderer;
+
+  function initMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
+      center: { lat: 19.0760, lng: 72.8777 }, // Default location (Mumbai)
+      zoom: 12
+    });
+
+    directionsService = new google.maps.DirectionsService();
+    directionsRenderer = new google.maps.DirectionsRenderer();
+    directionsRenderer.setMap(map);
+
+    // Autocomplete for input fields
+    let startInput = document.getElementById("start");
+    let endInput = document.getElementById("end");
+
+    new google.maps.places.Autocomplete(startInput);
+    new google.maps.places.Autocomplete(endInput);
+  }
+
+  function calculateRoute() {
+    let start = document.getElementById("start").value;
+    let end = document.getElementById("end").value;
+
+    if (start && end) {
+      let request = {
+        origin: start,
+        destination: end,
+        travelMode: google.maps.TravelMode.DRIVING
+      };
+
+      directionsService.route(request, function (result, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+          directionsRenderer.setDirections(result);
+        } else {
+          alert("Could not find route. Please try again.");
+        }
+      });
+    } else {
+      alert("Please enter both locations.");
+    }
+  }
+
+  window.onload = initMap;
+</script>
+
+
+</html>

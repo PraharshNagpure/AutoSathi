@@ -1,0 +1,38 @@
+.main-container{
+    user-select: none;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    user-select: none;
+
+}
+.text-global{
+    font-family: "Metamorphous", serif;
+    font-size: 30px;
+    text-align: center;
+}
+.stat-box {
+    user-select: none;
+    text-align: center;
+}
+
+.stat-box img {
+    width: 80px;
+    height: 80px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 22px;
+    margin: 10px 0;
+}
+
+p {
+    color: gray;
+}

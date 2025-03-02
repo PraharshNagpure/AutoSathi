@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Code/Css/login.css">
+    <title>Stusu-login</title>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div class="change-section" id="section">
+            <h1 class="welcome" id="heading">Welcome Back!</h1>
+            <p class="welcome-message" id="message">Enter your personal details to use all site features</p>
+            <button class="sign-in" id="toggleBtn">Sign in</button>
+        </div>
+        <div class="login-content" id="login-content">
+            <div class="text-section">
+                <div class="left">
+                    <h1 class="created-account">Sign In</h1>
+                    <div class="social-links">
+                        <!-- Sign-In Google Button -->
+                        <div class="icon google" id="googleSignIn">
+                            <img src="/code/Asset/Image/google.png" style="width: 15px; height: 15px;">
+                        </div>
+                        
+                        <div class="icon facebook">
+                            <img src="/code/Asset/Image/facebook.png" style="width: 15px; height: 15px;">
+                        </div>
+                        <div class="icon github">
+                            <img src="/code/Asset/Image/github.png" style="width: 15px; height: 15px;">
+                        </div>
+                        <div class="icon linkedin">
+                            <img src="/code/Asset/Image/linkedin.png" style="width: 15px; height: 15px;">
+                        </div>
+                    </div>
+                    <p class="details-text">or use your email & password</p>
+
+                    <form onsubmit="return login()">
+                        <input type="email" class="input email" placeholder="Email" id="email" required>
+                        <input type="password" class="input password" placeholder="Password" id="password" required>
+                    </form>
+
+                    <br>
+                    <p class="forget-password">Forget Your Password?</p>
+                    <br>
+                    <button type="button" class="signin" onclick="login()">Sign In</button>
+                </div>
+                <div class="right">
+                    <h1 class="created-account">Create an Account</h1>
+                    <div class="social-links">
+                        <!-- Sign-Up Google Button -->
+                        <div class="icon google" id="googleSignIn">
+                            <img src="/code/Asset/Image/google.png" style="width: 15px; height: 15px;">
+                        </div>
+                        
+                        <div class="icon facebook">
+                            <img src="/code/Asset/Image/facebook.png" style="width: 15px; height: 15px;">
+                        </div>
+                        <div class="icon github">
+                            <img src="/code/Asset/Image/github.png" style="width: 15px; height: 15px;">
+                        </div>
+                        <div class="icon linkedin">
+                            <img src="/code/Asset/Image/linkedin.png" style="width: 15px; height: 15px;">
+                        </div>
+                    </div>
+                    <p class="details-text">or use your email for registration</p>
+
+                    <input type="text" class="input name" placeholder="Name" id="reg-name">
+                    <input type="email" class="input email" placeholder="Email" id="reg-email">
+                    <input type="password" class="input password" placeholder="Password" id="reg-password">
+                    <br>
+
+                    <button type="button" class="signup" onclick="register()" id="signup-button">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="/Code/Javascript/login.js"></script>
+<script src="/Code/Javascript/index.js"></script>
+
+<!-- <script src="/Code/Javascript/Home.js"></script> -->
+</html>

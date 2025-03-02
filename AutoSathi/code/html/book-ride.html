@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Ride</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="/code/css/book-ride.css">
+    <link rel="stylesheet" href="/Code/Css/navbar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9egMqeHQKiGOIxQKid0JY0_SSaiRnvLw&libraries=places&callback=initMap"></script>
+</head>
+
+<body>
+    <div id="navbar-container"></div>
+    <div id="map"></div>
+    <div class="container">
+        <!-- Main Content -->
+        <main class="content">
+            <!-- Map Section -->
+            <div class="map-section">
+                <div id="map"></div>
+            </div>
+
+            <!-- Ride Details Section -->
+            <div class="details-section">
+                <h1>Book Your Ride</h1>
+
+                <!-- Gender Selection -->
+                <div class="form-group">
+                    <label for="gender">Comfortable with:</label>
+                    <select id="gender">
+                        <option value="any">Any Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+
+                <!-- Passenger Count -->
+                <div class="form-group">
+                    <label for="passengers ">Passengers with you:</label>
+                    <input type="number" id="passengers" min="1" max="10" value="1">
+                </div>
+
+                <!-- Booking Buttons -->
+                <div class="buttons">
+                    <button id="book-now" class="btn">Book Now</button>
+                    <button id="book-later" class="btn">Book Later</button>
+                </div>
+
+                <!-- Book Later Section (Hidden by Default) -->
+                <div id="book-later-section" class="hidden">
+                    <div class="form-group">
+                        <label for="date">Date:</label>
+                        <input type="date" id="date">
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Time:</label>
+                        <input type="time" id="time">
+                    </div>
+                    <button id="confirm-later" class="btn">Confirm Later Booking</button>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+<script src="/code/javascript/index.js"></script>
+<script>
+
+    // Book Later Section Toggle
+    document.getElementById('book-later').addEventListener('click', () => {
+        document.getElementById('book-later-section').classList.toggle('hidden');
+    });
+
+    // Book Now Button
+    document.getElementById('book-now').addEventListener('click', () => {
+        alert('Ride booked successfully!');
+    });
+
+    // Confirm Later Booking
+    //     document.getElementById('confirm-later').addEventListener('click', () => {
+    //         const date = document.getElementById('date').value;
+    //         const time = document.getElementById('time').value;
+    //         alert(Ride booked for ${ date } at ${ time });
+    // });
+
+</script>
+<script>
+    let map, directionsService, directionsRenderer;
+  
+    function initMap() {
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: 19.0760, lng: 72.8777 }, // Default location (Mumbai)
+        zoom: 12
+      });
+  
+      directionsService = new google.maps.DirectionsService();
+      directionsRenderer = new google.maps.DirectionsRenderer();
+      directionsRenderer.setMap(map);
+  
+      // Autocomplete for input fields
+      let startInput = document.getElementById("start");
+      let endInput = document.getElementById("end");
+  
+      new google.maps.places.Autocomplete(startInput);
+      new google.maps.places.Autocomplete(endInput);
+    }
+  
+    function calculateRoute() {
+      let start = document.getElementById("start").value;
+      let end = document.getElementById("end").value;
+  
+      if (start && end) {
+        let request = {
+          origin: start,
+          destination: end,
+          travelMode: google.maps.TravelMode.DRIVING
+        };
+  
+        directionsService.route(request, function (result, status) {
+          if (status == google.maps.DirectionsStatus.OK) {
+            directionsRenderer.setDirections(result);
+          } else {
+            alert("Could not find route. Please try again.");
+          }
+        });
+      } else {
+        alert("Please enter both locations.");
+      }
+    }
+  
+    window.onload = initMap;
+  </script>
+  
+
+</html>

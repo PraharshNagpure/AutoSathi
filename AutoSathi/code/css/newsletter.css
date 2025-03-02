@@ -1,0 +1,45 @@
+.newsletter-banner {
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-family: Arial, sans-serif;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 10px;
+}
+
+.newsletter-banner h2 {
+    margin: 0;
+    font-family: "Metamorphous", serif;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.newsletter-banner p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.newsletter-form {
+    margin-top: 10px;
+}
+
+.newsletter-form input {
+    padding: 10px;
+    width: 250px;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+.newsletter-form button {
+    padding: 10px 15px;
+    background: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.newsletter-form button:hover {
+    background: #333;
+}
